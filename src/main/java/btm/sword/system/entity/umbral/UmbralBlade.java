@@ -8,6 +8,7 @@ import java.util.function.Predicate;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.entity.Display;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ItemDisplay;
@@ -55,6 +56,7 @@ import btm.sword.system.statemachine.Transition;
 import btm.sword.util.Prefab;
 import btm.sword.util.display.DisplayUtil;
 import btm.sword.util.display.DrawUtil;
+import btm.sword.util.display.ParticleWrapper;
 import btm.sword.util.math.BezierUtil;
 import btm.sword.util.math.VectorUtil;
 import lombok.Getter;
@@ -83,7 +85,8 @@ public class UmbralBlade extends ThrownItem {
 
     private Vector3f scale = new Vector3f(0.85f, 1.3f, 1f);
 
-    private static final int idleMovementPeriod = 5;
+    private static final int idleMovementPeriod = 3;
+    private static final float idleMovementAmplitude = 0.25f;
     private BukkitTask idleMovement;
 
     private final Predicate<UmbralBlade> endHoverPredicate;
@@ -337,7 +340,7 @@ public class UmbralBlade extends ThrownItem {
         bladeStateMachine.addTransition(new Transition<>(
             LodgedState.class,
             ReturningState.class,
-            blade -> hitEntity == null || !hitEntity.isValid(),
+            blade -> hitEntity == null || hitEntity.isInvalid(),
             blade -> {}
         ));
 
@@ -398,7 +401,7 @@ public class UmbralBlade extends ThrownItem {
     }
 
     public void onTick() {
-        if (!thrower.isValid()) {
+        if (thrower.isInvalid()) {
             thrower.message("Ending Umbral Blade");
             dispose();
         }
@@ -456,8 +459,8 @@ public class UmbralBlade extends ThrownItem {
         }
         else if (state == AttackingQuickState.class || state == AttackingHeavyState.class) {
             return new Transformation(
-                new Vector3f(0, 0, -1), // TODO: fix so tip of blade is at particles
-                new Quaternionf().rotateX((float) Math.PI/2), // TODO - test
+                new Vector3f(0, 0, -1),
+                new Quaternionf().rotateX((float) Math.PI/2),
                 scale,
                 new Quaternionf());
         }
@@ -489,9 +492,6 @@ public class UmbralBlade extends ThrownItem {
 
     public void updateSheathedPosition() {
         if (inState(WaitingState.class)) return;
-
-        long[] lastTimeSent = { System.currentTimeMillis() };
-
         int x = 3;
         for (int i = 0; i < x; i++) {
             SwordScheduler.runBukkitTaskLater(new BukkitRunnable() {
@@ -500,16 +500,8 @@ public class UmbralBlade extends ThrownItem {
                     DisplayUtil.smoothTeleport(display, 2);
                     display.teleport(thrower.entity().getLocation().setDirection(thrower.getFlatDir()));
                     thrower.entity().addPassenger(display);
-
-                    //TODO: Remove later
-                    if (System.currentTimeMillis() - lastTimeSent[0] > 1500) {
-                        lastTimeSent[0] = System.currentTimeMillis();
-                        thrower.message("Updating pos apparently...");
-                    }
-
                 }
-            }, 50/x, TimeUnit.MILLISECONDS);  // 50 because that's the millisecond value of a tick
-                                                    // TODO Prefab or config value
+            }, 50/x, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -518,10 +510,17 @@ public class UmbralBlade extends ThrownItem {
             double step = 0;
             @Override
             public void run() {
+                DisplayUtil.setInterpolationValues(display, 0, idleMovementPeriod);
+                display.setTransformation(
+                    new Transformation(
+                        new Vector3f(0, (float) Math.cos(step) * idleMovementAmplitude, 0),
+                        display.getTransformation().getLeftRotation(),
+                        scale,
+                        new Quaternionf()
+                    )
+                );
 
-                // TODO implement a sinusoidal solution.
-
-                step += Math.PI/3;
+                step += Math.PI/8;
             }
         }.runTaskTimer(Sword.getInstance(), 0L, idleMovementPeriod);
     }
@@ -537,12 +536,10 @@ public class UmbralBlade extends ThrownItem {
 
     public BukkitTask returnToWielderAndRequestState(BladeRequest request) {
         return DisplayUtil.displaySlerpToOffset(thrower, display,
-            thrower.getChestVector(), 1.75, 5, 2, 0.8, false,
+            thrower.getChestVector(), 1.75, 5, 2, 1.5, false,
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    thrower.message("I have returned.");
-
                     request(request);
                 }
             });
@@ -553,7 +550,7 @@ public class UmbralBlade extends ThrownItem {
         Attack attack;
         Location attackOrigin;
 
-        if (target == null || !target.isValid()) {
+        if (target == null || target.isInvalid()) {
             attackOrigin = thrower.getChestLocation().clone()
                 .add(thrower.entity().getEyeLocation().getDirection().multiply(range));
         }
@@ -750,15 +747,24 @@ public class UmbralBlade extends ThrownItem {
     }
 
     @Override
+    protected void onGrounded() {
+        if (stuckBlock != null) {
+            this.blockDustPillarParticle = new ParticleWrapper(Particle.DUST_PILLAR, 50, 1, 1, 1, stuckBlock.getBlockData());
+            blockDustPillarParticle.display(cur);
+        }
+        request(BladeRequest.RECALL);
+    }
+
+    @Override
     protected void onEnd() {
         super.onEnd();
         finishedLunging = true;
+        cleanupBeforeNewThrow();
     }
 
     @Override
     protected void handleOnReleaseActions() {
         Prefab.Sounds.THROW.play(getThrower().entity());
-//        InteractiveItemArbiter.put(this); // TODO: figure out interactive behaviour...
     }
 
     @Override
@@ -776,6 +782,7 @@ public class UmbralBlade extends ThrownItem {
         hit = false;
         grounded = false;
         caught = false;
-        hitEntity = null;
+//        hitEntity = null;
+        stuckBlock = null;
     }
 }

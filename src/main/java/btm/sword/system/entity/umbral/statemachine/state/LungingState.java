@@ -16,11 +16,12 @@ public class LungingState extends UmbralStateFacade {
 
     @Override
     public void onEnter(UmbralBlade blade) {
+        blade.setHitEntity(null);
         blade.setFinishedLunging(false);
-        blade.setTimeScalingFactor(1.0/10); // TODO: for bezier curve throws, the denom is just # its, make method take in that val instead
         blade.setTimeCutoff(1.2);
+        blade.setTimeScalingFactor(9);
         blade.setCtrlPointsForLunge(AttackType.LUNGE1.controlVectors());
-        blade.onRelease(1);
+        blade.onRelease(3);
 
         blade.getDisplay().setGlowing(true);
         blade.getDisplay().setGlowColorOverride(Color.fromRGB(1, 1, 1));
@@ -34,6 +35,6 @@ public class LungingState extends UmbralStateFacade {
 
     @Override
     public void onTick(UmbralBlade blade) {
-//        blade.getThrower().message("Finished lunging?: " + blade.isFinishedLunging());
+
     }
 }
